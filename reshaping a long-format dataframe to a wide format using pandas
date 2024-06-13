@@ -1,0 +1,20 @@
+import pandas as pd
+
+# Sample long-format dataframe
+data = {
+    'Date': ['2021-01-01', '2021-01-01', '2021-01-02', '2021-01-02', '2021-01-02'],
+    'Category': ['A', 'B', 'A', 'B', 'B'],
+    'Value': [10, 20, 30, 40, 50]
+}
+df_long = pd.DataFrame(data)
+
+# Display the long-format dataframe
+print("Long-format dataframe:")
+print(df_long)
+
+# Pivot the dataframe to wide format
+df_wide = df_long.pivot_table(index='Date', columns='Category', values='Value', aggfunc='sum')
+
+# Display the wide-format dataframe
+print("\nWide-format dataframe:")
+print(df_wide)
