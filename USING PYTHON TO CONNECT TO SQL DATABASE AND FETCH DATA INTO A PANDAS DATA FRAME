@@ -1,0 +1,19 @@
+# Import necessary libraries
+from sqlalchemy import create_engine
+import pandas as pd
+
+# Create an engine to connect to the SQLite database
+# Replace 'sqlite:///example.db' with your specific database connection string
+engine = create_engine('sqlite:///example.db')
+
+# Define your SQL query
+query = "SELECT * FROM employees"  # Replace 'employees' with the actual table name
+
+# Fetch the data into a pandas dataframe
+df = pd.read_sql(query, engine)
+
+# Display the first few rows of the dataframe
+print(df.head())
+
+# Close the connection (optional, but good practice)
+engine.dispose()
